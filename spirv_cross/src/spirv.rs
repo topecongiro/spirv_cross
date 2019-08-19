@@ -292,6 +292,7 @@ pub struct EntryPoint {
 
 /// A resource.
 #[derive(Clone, Debug, Hash, Eq, PartialEq)]
+#[cfg_attr(feature = "use_serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Resource {
     pub id: u32,
     pub type_id: u32,
@@ -316,6 +317,7 @@ pub struct WorkGroupSizeSpecializationConstants {
 
 /// Shader resources.
 #[derive(Debug, Clone)]
+#[cfg_attr(feature = "use_serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct ShaderResources {
     pub uniform_buffers: Vec<Resource>,
     pub storage_buffers: Vec<Resource>,
